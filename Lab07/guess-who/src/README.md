@@ -1,47 +1,3 @@
-# Team: "MrRobot"
-
-## Members
-- s341987 Domizio Mattia
-- 341988 Gonnella Luigi
-- 285232 Monaco Dorotea
-- 297702 Mondino Gabriele
-- 343608 Martini Claudio
-
-## Lab Journal
-
-- DOMINIO = personaggi di show televisivi (anime, cartoon, serie tv, film)
-
-CREATE TABLE "CHARACTER" (
-	"id"	INTEGER NOT NULL UNIQUE,
-	"name"	TEXT NOT NULL,
-	"fictionGenre"	TEXT NOT NULL,
-	"role"	TEXT NOT NULL,
-	"hairColor"	TEXT NOT NULL,
-	"glasses"	TEXT NOT NULL,
-	"gender"	TEXT NOT NULL,
-	"hasPower"	TEXT NOT NULL,
-	PRIMARY KEY("id")
-);
-
-CREATE TABLE "HYPOTHESIS" (
-	"id"	INTEGER NOT NULL UNIQUE,
-	"property"	TEXT NOT NULL,
-	"value"	TEXT NOT NULL,
-	"correct"	TEXT NOT NULL,
-	PRIMARY KEY("id")
-);
-
-CREATE TABLE "GAME" (
-	"id"	INTEGER NOT NULL UNIQUE,
-	"difficulty"	TEXT NOT NULL,
-	"idSecretCharacter"	INTEGER NOT NULL,
-	PRIMARY KEY("id"),
-	FOREIGN KEY("idSecretCharacter") REFERENCES "CHARACTER"("id")
-);
-
-### Selected Exercise: "Guess Who"
-
-
 # `gw-server`
 
 The `gw-server` is the server-side app companion for "GuessWho?" web game. It presents some APIs to perform some CRUD operations on characters, hypotheses and games.
@@ -249,3 +205,15 @@ Description: Set a random secret character for the game identified by `<id>`.
 Response: `204 No Content` (success), `404 Not Found` (wrong id), or `503 Service Unavailable` (generic error).
 
 Response body: __None__
+
+
+# `React Components structure`
+* Navbar
+* Hypotheses
+    * HypothesisGrid
+      * Property
+      * Values
+* Characters -> characters
+    * CharactersGrid
+        * CharacterCard
+* Footer
