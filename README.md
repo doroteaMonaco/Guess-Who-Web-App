@@ -1,251 +1,117 @@
-# Team: "MrRobot"
+<div id="top">
 
-## Members
-- s341987 Domizio Mattia
-- 341988 Gonnella Luigi
-- 285232 Monaco Dorotea
-- 297702 Mondino Gabriele
-- 343608 Martini Claudio
+<!-- HEADER STYLE: CLASSIC -->
+<div align="center">
 
-## Lab Journal
+<img src="Guess-Who-Web-App.png" width="30%" style="position: relative; top: 0; right: 0;" alt="Project Logo"/>
 
-- DOMINIO = personaggi di show televisivi (anime, cartoon, serie tv, film)
+# GUESS-WHO-WEB-APP
 
-CREATE TABLE "CHARACTER" (
-	"id"	INTEGER NOT NULL UNIQUE,
-	"name"	TEXT NOT NULL,
-	"fictionGenre"	TEXT NOT NULL,
-	"role"	TEXT NOT NULL,
-	"hairColor"	TEXT NOT NULL,
-	"glasses"	TEXT NOT NULL,
-	"gender"	TEXT NOT NULL,
-	"hasPower"	TEXT NOT NULL,
-	PRIMARY KEY("id")
-);
+<em>Uncover Secrets Faster, Play Smarter, Win More</em>
 
-CREATE TABLE "HYPOTHESIS" (
-	"id"	INTEGER NOT NULL UNIQUE,
-	"property"	TEXT NOT NULL,
-	"value"	TEXT NOT NULL,
-	"correct"	TEXT NOT NULL,
-	PRIMARY KEY("id")
-);
+<!-- BADGES -->
+<img src="https://img.shields.io/github/last-commit/doroteaMonaco/Guess-Who-Web-App?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+<img src="https://img.shields.io/github/languages/top/doroteaMonaco/Guess-Who-Web-App?style=flat&color=0080ff" alt="repo-top-language">
+<img src="https://img.shields.io/github/languages/count/doroteaMonaco/Guess-Who-Web-App?style=flat&color=0080ff" alt="repo-language-count">
 
-CREATE TABLE "GAME" (
-	"id"	INTEGER NOT NULL UNIQUE,
-	"difficulty"	TEXT NOT NULL,
-	"idSecretCharacter"	INTEGER NOT NULL,
-	PRIMARY KEY("id"),
-	FOREIGN KEY("idSecretCharacter") REFERENCES "CHARACTER"("id")
-);
+<em>Built with the tools and technologies:</em>
 
-### Selected Exercise: "Guess Who"
+<img src="https://img.shields.io/badge/JSON-000000.svg?style=flat&logo=JSON&logoColor=white" alt="JSON">
+<img src="https://img.shields.io/badge/Markdown-000000.svg?style=flat&logo=Markdown&logoColor=white" alt="Markdown">
+<img src="https://img.shields.io/badge/npm-CB3837.svg?style=flat&logo=npm&logoColor=white" alt="npm">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat&logo=JavaScript&logoColor=black" alt="JavaScript">
+<img src="https://img.shields.io/badge/React%20Bootstrap-41E0FD.svg?style=flat&logo=React-Bootstrap&logoColor=black" alt="React%20Bootstrap">
+<img src="https://img.shields.io/badge/React-61DAFB.svg?style=flat&logo=React&logoColor=black" alt="React">
+<br>
+<img src="https://img.shields.io/badge/SQLite-003B57.svg?style=flat&logo=SQLite&logoColor=white" alt="SQLite">
+<img src="https://img.shields.io/badge/Vite-646CFF.svg?style=flat&logo=Vite&logoColor=white" alt="Vite">
+<img src="https://img.shields.io/badge/ESLint-4B32C3.svg?style=flat&logo=ESLint&logoColor=white" alt="ESLint">
+<img src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=flat&logo=Bootstrap&logoColor=white" alt="Bootstrap">
+<img src="https://img.shields.io/badge/React%20Router-CA4245.svg?style=flat&logo=React-Router&logoColor=white" alt="React%20Router">
 
+</div>
+<br>
 
-# `gw-server`
+---
 
-The `gw-server` is the server-side app companion for "GuessWho?" web game. It presents some APIs to perform some CRUD operations on characters, hypotheses and games.
+## 📄 Table of Contents
 
-## APIs
-Hereafter, we report the designed HTTP APIs, also implemented in the project.
+- [Overview](#-overview)
+- [Getting Started](#-getting-started)
+    - [Prerequisites](#-prerequisites)
+    - [Installation](#-installation)
+    - [Usage](#-usage)
+    - [Testing](#-testing)
 
+---
 
-### __List all characters__
+## ✨ Overview
 
-URL: `/api/characters`
+Guess-Who-Web-App is a comprehensive developer toolkit for building interactive, web-based "Guess Who?" games with robust backend and frontend integration. The core features include:
 
-HTTP Method: GET.
+- 🧩 **API Endpoints:** RESTful interfaces for managing characters, hypotheses, and game states, enabling seamless client-server communication.
+- 🛠️ **Data Models & Database:** Structured character, hypothesis, and game data with SQLite integration for persistent, consistent data handling.
+- ⚙️ **Modular Architecture:** Clear separation of concerns with backend logic, data access layers, and React-based frontend components.
+- 🎯 **Dynamic Gameplay:** Supports user management, game progress tracking, and real-time updates for engaging user experiences.
+- 🚀 **Developer Friendly:** Streamlined setup with Vite, React, and ESLint configurations for rapid development and maintainable code.
 
-Description: Retrieve all characters.
+---
 
-Response: `200 OK` (success) or `500 Internal Server Error` (generic error). On success, returns an array of characters in JSON format (see below). On error, returns an error message.
+## 🚀 Getting Started
 
-Response body:
-```json
-[
-  {
-    "id": 1,
-    "name": "Sheldon Cooper",
-    "fictionGenre": "comedy",
-    "role": "main",
-    "hairColor": "brown",
-    "glasses": false,
-    "gender": "male",
-    "hasPower": false,
-    "visible": true
-  },
-  ...
-]
+### 📋 Prerequisites
+
+This project requires the following dependencies:
+
+- **Programming Language:** JavaScript
+- **Package Manager:** Npm
+
+### ⚙️ Installation
+
+Build Guess-Who-Web-App from the source and install dependencies:
+
+1. **Clone the repository:**
+
+    ```sh
+    ❯ git clone https://github.com/doroteaMonaco/Guess-Who-Web-App
+    ```
+
+2. **Navigate to the project directory:**
+
+    ```sh
+    ❯ cd Guess-Who-Web-App
+    ```
+
+3. **Install the dependencies:**
+
+**Using [npm](https://www.npmjs.com/):**
+
+```sh
+❯ npm install
 ```
 
+### 💻 Usage
 
-### __Get a single character__
+Run the project with:
 
-URL: `/api/characters/<id>`
+**Using [npm](https://www.npmjs.com/):**
 
-HTTP Method: GET.
-
-Description: Retrieve the character identified by `<id>`.
-
-Response: `200 OK` (success), `404 Not Found` (wrong id), or `500 Internal Server Error` (generic error).
-
-Response body:
-```json
-{
-  "id": 1,
-  "name": "Sheldon Cooper",
-  "fictionGenre": "comedy",
-  "role": "main",
-  "hairColor": "brown",
-  "glasses": false,
-  "gender": "male",
-  "hasPower": false,
-  "visible": true
-}
+```sh
+npm start
 ```
 
-### __Create a new character__
+### 🧪 Testing
 
-URL: `/api/characters`
+Guess-who-web-app uses the {__test_framework__} test framework. Run the test suite with:
 
-HTTP Method: POST.
+**Using [npm](https://www.npmjs.com/):**
 
-Description: Create a new character.
-
-Request body:
-```json
-{
-  "name": "Joanne",
-  "fictionGenre": "sci-fi",
-  "role": "main",
-  "hairColor": "blonde",
-  "glasses": true,
-  "gender": "female",
-  "hasPower": false
-}
+```sh
+npm test
 ```
 
-Response: `201 Created` (success, with the created id), `503 Service Unavailable` (generic error). If the request body is invalid (after validation), `422 Unprocessable Entity` (validation error).
+---
 
-Response body: __None__
+<div align="left"><a href="#top">⬆ Return</a></div>
 
-
-### __Update an existing character__
-
-URL: `/api/characters/<id>`
-
-HTTP Method: PUT.
-
-Description: Update a character identified by `<id>`.
-
-Request body: A JSON object representing the character.
-```json
-{
-  "name": "Alice",
-  "fictionGenre": "sci-fi",
-  "role": "main",
-  "hairColor": "blonde",
-  "glasses": true,
-  "gender": "female",
-  "hasPower": false,
-  "visible": true
-}
-```
-
-Response: `200 OK` (success), `404 Not Found` (wrong id), or `503 Service Unavailable` (generic error). If the request body is invalid, `422 Unprocessable Entity` (validation error).
-
-Response body: __None__
-
-
-### __Delete a character__
-
-URL: `/api/characters/<id>`
-
-HTTP Method: DELETE.
-
-Description: Delete a character identified by `<id>`.
-
-Response: `204 No Content` (success), `404 Not Found` (wrong id), or `503 Service Unavailable` (generic error).
-
-Response body: __None__
-
-
-### __List all hypotheses for a game__
-
-URL: `/api/games/<id>/hypotheses`
-
-HTTP Method: GET.
-
-Description: Retrieve all hypotheses associated with the game identified by `<id>`.
-
-Response: `200 OK` (success), `404 Not Found` (wrong id), or `500 Internal Server Error` (generic error).
-
-Response body:
-```json
-[
-  "hairColor: Black -> correct",
-  "glasses: true -> incorrect",
-  ...
-]
-```
-
-
-### __Add a new hypothesis to a game__
-
-URL: `/api/games/<id>/hypotheses`
-
-HTTP Method: POST.
-
-Description: Add a new hypothesis to the game identified by `<id>`.
-
-Request body:
-```json
-{
-  "property": "hairColor",
-  "value": "Black",
-  "correct": true
-}
-```
-
-Response: `201 Created` (success, with the created id), `404 Not Found` (wrong id), or `503 Service Unavailable` (generic error). If the request body is invalid, `422 Unprocessable Entity` (validation error).
-
-Response body: __None__
-
-
-### __Reset visibility of all characters__
-
-URL: `/api/characters/reset-visibility`
-
-HTTP Method: POST.
-
-Description: Set `visible = true` for all characters.
-
-Response: `204 No Content` (success) or `503 Service Unavailable` (generic error).
-
-Response body: __None__
-
-
-### __Update visibility based on a hypothesis__
-
-URL: `/api/hypotheses/<id>/update-visibility`
-
-HTTP Method: POST.
-
-Description: Update the visibility of characters based on the hypothesis identified by `<id>`.
-
-Response: `204 No Content` (success), or `503 Service Unavailable` (generic error).
-
-Response body: __None__
-
-
-### __Set secret character for a game__
-
-URL: `/api/games/<id>/set-secret-character`
-
-HTTP Method: POST.
-
-Description: Set a random secret character for the game identified by `<id>`.
-
-Response: `204 No Content` (success), `404 Not Found` (wrong id), or `503 Service Unavailable` (generic error).
-
-Response body: __None__
+---
