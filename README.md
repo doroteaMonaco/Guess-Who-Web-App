@@ -3,8 +3,6 @@
 <!-- HEADER STYLE: CLASSIC -->
 <div align="center">
 
-<img src="Guess-Who-Web-App.png" width="30%" style="position: relative; top: 0; right: 0;" alt="Project Logo"/>
-
 # GUESS-WHO-WEB-APP
 
 <em>Uncover Secrets Faster, Play Smarter, Win More</em>
